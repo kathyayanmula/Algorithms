@@ -1,6 +1,8 @@
 /**
  * Created by kmula on 2/24/2016.
  */
+
+/*Find the minimum value in every iteration and swap it with the element at index i. Later do the same for rest of the unsorted array.*/
 public class SelectionSort {
     public static void main(String args[]){
         int[] numbers = {1,2,0,3,4,5,0,6,3,1,0,9,5,4,0};
