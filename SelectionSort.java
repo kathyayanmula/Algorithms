@@ -4,37 +4,32 @@
 
 /*Find the minimum value in every iteration and swap it with the element at index i. Later do the same for rest of the unsorted array.*/
 public class SelectionSort {
-    public static void main(String args[]){
-        int[] numbers = {1,2,0,3,4,5,0,6,3,1,0,9,5,4,0};
-        int minIndex = 0;
-        for(int i = 0; i < numbers.length; i++) {
-            /*
-            int k =0;
-            int j = numbers.length - 1;
-            while (j>k){
-                if (numbers[j-1] > numbers[j]) {
-                    int tmp = numbers[j - 1];
-                    numbers[j - 1] = numbers[j];
-                    numbers[j] = tmp;
 
-                }
-                j--;
-            }
-            k++;*/
-            minIndex=i;
-            for(int j=i+1; j < numbers.length; j++){
-                if (numbers[j] < numbers[minIndex]) {
+    private int[] unsortedArray;
+
+    public SelectionSort(int[] unsortedArray){
+        this.unsortedArray = unsortedArray;
+    }
+
+    public int[] sort(){
+        for(int i = 0; i < unsortedArray.length; i++) {
+            int minIndex=i;
+            for(int j=i+1; j < unsortedArray.length; j++){
+                if (unsortedArray[j] < unsortedArray[minIndex]) {
                     minIndex = j;
                 }
             }
-            int tmp = numbers[i];
-            numbers[i] = numbers[minIndex];
-            numbers[minIndex] = tmp;
+            swap(i, minIndex);
         }
-        //System.out.print(numbers.length);
-        for (int i : numbers){
-            System.out.print(i);
-        }
+
+        return unsortedArray;
+    }
+
+    public int[] swap(int i, int minIndex){
+        int tmp = this.unsortedArray[i];
+        this.unsortedArray[i] = this.unsortedArray[minIndex];
+        this.unsortedArray[minIndex] = tmp;
+        return this.unsortedArray;
     }
 
 }
